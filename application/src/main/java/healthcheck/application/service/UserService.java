@@ -27,8 +27,7 @@ public class UserService {
         final String password = UUID.randomUUID().toString().replace("-","");
         user.setEmail(user.getEmail());
         user.setPassword(password);
-        user.setIsAdmin(false);
-        user.setCity(user.getHospital().getCity());
+        user.setIsAdmin(true);
         userRepository.save(user);
         mailService.sendEmail(user.getEmail(), password);
     }
@@ -61,9 +60,5 @@ public class UserService {
     public void updateUserPassword(long userId, String newPassword) {
         User user = this.userRepository.findById(userId).get();
         user.setPassword(newPassword);
-    }
-
-    public List<User> getAllVolunteersFromCity(String city) {
-        return userRepository.getAllVolunteersFromCity(city);
     }
 }

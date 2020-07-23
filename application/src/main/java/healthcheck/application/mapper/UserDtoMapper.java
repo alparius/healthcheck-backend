@@ -29,8 +29,6 @@ public class UserDtoMapper extends AbstractMapper<User, UserDto> {
             user.setFirstName(userDto.getFirstName());
             user.setSurname(userDto.getSurname());
             user.setIsAdmin(userDto.getIsAdmin());
-            user.setCity(userDto.getCity());
-            user.setHospital(hospitalService.getById(userDto.getHospitalId()));
             return user;
     }
 
@@ -45,8 +43,6 @@ public class UserDtoMapper extends AbstractMapper<User, UserDto> {
         userDto.setFirstName(user.getFirstName());
         userDto.setSurname(user.getSurname());
         userDto.setIsAdmin(user.getIsAdmin());
-        userDto.setCity(user.getCity());
-        userDto.setHospitalId(user.getHospital().getId());
         return userDto;
     }
 

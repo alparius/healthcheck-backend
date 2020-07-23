@@ -17,6 +17,4 @@ public class LoginResponseDto {
     private String firstName;
     private String surname;
     private Boolean isAdmin;
-    private String city;
-    private long hospitalId;
 }

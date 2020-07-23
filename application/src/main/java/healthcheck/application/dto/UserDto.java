@@ -23,8 +23,4 @@ public class UserDto extends BaseDto{
     private String surname;
 
     private Boolean isAdmin;
-
-    private String city;
-
-    private Long hospitalId;
 }

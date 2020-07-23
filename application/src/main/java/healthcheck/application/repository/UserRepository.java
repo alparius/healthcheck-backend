@@ -15,7 +15,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> getUserByEmail(@Param("email") String email);
 
     Optional<User> findByUsername(String username);
-
-    @Query("SELECT user FROM User user WHERE lower(user.city) = lower(:city) AND user.isAdmin = 0")
-    List<User> getAllVolunteersFromCity(@Param("city") String city);
 }
