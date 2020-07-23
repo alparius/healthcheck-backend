@@ -27,9 +27,6 @@ public class User extends BaseEntity implements Serializable {
     private String email;
 
     @Column
-    private String phone;
-
-    @Column
     private String firstName;
 
     @Column
@@ -37,13 +34,6 @@ public class User extends BaseEntity implements Serializable {
 
     @Column
     private Boolean isAdmin;
-
-    @Column
-    private String city;
-
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Hospital.class)
-    @JoinColumn(name = "hospital", referencedColumnName = "id")
-    private Hospital hospital;
 
     @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

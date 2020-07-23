@@ -33,22 +33,14 @@ public class LoginController {
             User userLoggedIn = userService.getUserById(newUserSession.getUserId());
 
 
-            long hospitalId = -1;
-            if (!userLoggedIn.getIsAdmin()) {
-                hospitalId = userLoggedIn.getHospital().getId();
-            }
-
             LoginResponseDto loginResponseDto = LoginResponseDto.builder()
                     .userId(newUserSession.getUserId())
                     .userToken(newUserSession.getUserToken())
                     .email(userLoggedIn.getEmail())
                     .username(userLoggedIn.getUsername())
-                    .phone(userLoggedIn.getPhone())
                     .firstName(userLoggedIn.getFirstName())
                     .surname(userLoggedIn.getSurname())
                     .isAdmin(userLoggedIn.getIsAdmin())
-                    .city(userLoggedIn.getCity())
-                    .hospitalId(hospitalId)
                     .build();
 
             log.trace("LoginController: loginUser() loginResponseDto = {}", loginResponseDto);

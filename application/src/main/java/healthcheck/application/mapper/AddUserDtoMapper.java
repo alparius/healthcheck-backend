@@ -17,7 +17,6 @@ public class AddUserDtoMapper extends  AbstractMapper<User, AddUserDto> {
         User user = new User();
         user.setEmail(addUserDto.getEmail());
         user.setUsername(addUserDto.getEmail().substring(0, addUserDto.getEmail().indexOf("@")));
-        user.setHospital(hospitalService.getById(addUserDto.getHospitalId()));
         return user;
     }
 

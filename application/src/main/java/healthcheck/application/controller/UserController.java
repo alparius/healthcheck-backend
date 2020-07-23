@@ -48,6 +48,7 @@ public class UserController {
             method = {RequestMethod.POST}
     )
     public void addUser(@RequestBody AddUserDto addUserDto) {
+        System.out.println("HEREEEE");
             userService.addUser(addUserDtoMapper.convertDtoToModel(addUserDto));
     }
 
@@ -89,21 +90,14 @@ public class UserController {
         userService.updateUser(userId, userDto);
 
         User userInformation = userService.getUserById(userId);
-        long hospitalId = -1;
-        if (!userInformation.getIsAdmin()) {
-            hospitalId = userInformation.getHospital().getId();
-        }
 
         return UserUpdateResponseDto.builder()
                 .userToken(userToken)
                 .email(userInformation.getEmail())
                 .username(userInformation.getUsername())
-                .phone(userInformation.getPhone())
                 .firstName(userInformation.getFirstName())
                 .surname(userInformation.getSurname())
                 .isAdmin(userInformation.getIsAdmin())
-                .city(userInformation.getCity())
-                .hospitalId(hospitalId)
                 .build();
     }
 
@@ -126,24 +120,6 @@ public class UserController {
                                    @RequestBody UserUpdatePasswordRequestDto userUpdatePasswordRequestDto) throws Exception {
         long userId = loginService.getUserSession(userToken).getUserId();
         userService.updateUserPassword(userId, userUpdatePasswordRequestDto.getNewPassword());
-    }
-
-    @ApiOperation("Receive VolunteersByCity signal.")
-    @ApiResponses({@ApiResponse(
-            code = 200,
-            message = "Signal received and processed successfully."
-    ), @ApiResponse(
-            code = 400,
-            message = "Bad Request | Signal received but could not be processed correctly."
-    )})
-    @RequestMapping(
-            name = "Get all volunteers from a city api",
-            value = {LEADER_ENDPOINT + "/getVolunteersByCity"},
-            produces = {"application/json"},
-            method = {RequestMethod.GET}
-    )
-    public List<UserDto> getAllVolunteersFromCity(@RequestParam(value = "city") String city) {
-        return userDtoMapper.convertModelsToDtos(userService.getAllVolunteersFromCity(city));
     }
 }
 

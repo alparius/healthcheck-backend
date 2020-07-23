@@ -43,7 +43,7 @@ public class FilterConfiguration {
         registrationBean.setFilter(userConnectionFilter);
         registrationBean.setOrder(2);
 
-        registrationBean.addUrlPatterns("/api/user/*");
+
         registrationBean.addUrlPatterns("/api/report/*");
         registrationBean.addUrlPatterns("/api/activity/*");
         registrationBean.addUrlPatterns("/api/hospital/*");
@@ -60,7 +60,7 @@ public class FilterConfiguration {
         registrationBean.setFilter(adminConnectionFilter);
         registrationBean.setOrder(3);
 
-        registrationBean.addUrlPatterns("/api/user/leader/*");
+
         registrationBean.addUrlPatterns("/api/report/leader/*");
         registrationBean.addUrlPatterns("/api/activity/leader/*");
         registrationBean.addUrlPatterns("/api/hospital/leader/*");
