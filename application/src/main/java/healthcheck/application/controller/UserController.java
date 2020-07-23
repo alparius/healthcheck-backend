@@ -95,7 +95,6 @@ public class UserController {
                 .userToken(userToken)
                 .email(userInformation.getEmail())
                 .username(userInformation.getUsername())
-                .phone(userInformation.getPhone())
                 .firstName(userInformation.getFirstName())
                 .surname(userInformation.getSurname())
                 .isAdmin(userInformation.getIsAdmin())

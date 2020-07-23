@@ -38,7 +38,6 @@ public class LoginController {
                     .userToken(newUserSession.getUserToken())
                     .email(userLoggedIn.getEmail())
                     .username(userLoggedIn.getUsername())
-                    .phone(userLoggedIn.getPhone())
                     .firstName(userLoggedIn.getFirstName())
                     .surname(userLoggedIn.getSurname())
                     .isAdmin(userLoggedIn.getIsAdmin())

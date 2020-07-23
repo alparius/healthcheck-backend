@@ -41,7 +41,6 @@ public class UserService {
     public void updateUser(Long id, UserUpdateRequestDto userUpdateRequestDto) {
         User user = this.userRepository.findById(id).get();
         user.setUsername(userUpdateRequestDto.getUsername());
-        user.setPhone(userUpdateRequestDto.getPhone());
         user.setFirstName(userUpdateRequestDto.getFirstName());
         user.setSurname(userUpdateRequestDto.getSurname());
     }

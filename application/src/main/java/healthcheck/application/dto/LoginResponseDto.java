@@ -13,7 +13,6 @@ public class LoginResponseDto {
     private String userToken;
     private String email;
     private String username;
-    private String phone;
     private String firstName;
     private String surname;
     private Boolean isAdmin;

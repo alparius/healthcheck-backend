@@ -6,8 +6,6 @@ import lombok.Data;
 public class UserUpdateRequestDto {
     private String username;
 
-    private String phone;
-
     private String firstName;
 
     private String surname;
