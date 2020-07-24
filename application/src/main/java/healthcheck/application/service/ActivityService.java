@@ -20,12 +20,8 @@ public class ActivityService {
     @Autowired
     ActivityRepository activityRepository;
 
-    public List<Activity> getAllActivitiesFromCity(String city){
-        return activityRepository.getAllActivitiesFromCity(city);
-    }
-
-    public List<Activity> getAllActivitiesFromHospital(Long hospitalId){
-        return activityRepository.getAllActivitiesFromHospital(hospitalId);
+    public List<Activity> getUserActivities(Long userid){
+        return activityRepository.getUserActivities(userid);
     }
 
     public Activity getActivityById(Long id){

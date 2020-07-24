@@ -28,7 +28,7 @@ public class ActivityController {
     @Autowired
     ActivityDtoMapper activityDtoMapper;
 
-    @ApiOperation("Receive ActivityByCity signal.")
+    @ApiOperation("Receive UserActivities signal.")
     @ApiResponses({@ApiResponse(
             code = 200,
             message = "Signal received and processed successfully."
@@ -37,31 +37,13 @@ public class ActivityController {
             message = "Bad Request | Signal received but could not be processed correctly."
     )})
     @RequestMapping(
-            name = "Get all activities from a city api",
-            value = {"/getActivitiesByCity"},
+            name = "Get all activities of a user",
+            value = {"/getUserActivities"},
             produces = {"application/json"},
             method = {RequestMethod.GET}
     )
-    public List<ActivityDto> getAllActivitiesFromCity(@RequestParam(value = "city") String city) {
-        return activityDtoMapper.convertModelsToDtos(activityService.getAllActivitiesFromCity(city));
-    }
-
-    @ApiOperation("Receive ActivityByHospital signal.")
-    @ApiResponses({@ApiResponse(
-            code = 200,
-            message = "Signal received and processed successfully."
-    ), @ApiResponse(
-            code = 400,
-            message = "Bad Request | Signal received but could not be processed correctly."
-    )})
-    @RequestMapping(
-            name = "Get all activities from a hospital api",
-            value = {"/getActivitiesByHospital"},
-            produces = {"application/json"},
-            method = {RequestMethod.GET}
-    )
-    public List<ActivityDto> getAllActivitiesFromHospital(@RequestParam(value = "hospitalId") Long hospitalId) {
-        return activityDtoMapper.convertModelsToDtos(activityService.getAllActivitiesFromHospital(hospitalId));
+    public List<ActivityDto> getAllUserActivities(@RequestParam(value = "userid") Long userid) {
+        return activityDtoMapper.convertModelsToDtos(activityService.getUserActivities(userid));
     }
 
     @ApiOperation("Receive ActivityById signal.")

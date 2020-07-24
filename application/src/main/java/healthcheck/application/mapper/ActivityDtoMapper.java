@@ -27,7 +27,7 @@ public class ActivityDtoMapper extends AbstractMapper<Activity, ActivityDto> {
         activity.setEndDateAndTime(LocalDateTime.parse(activityDto.getEndDateAndTime(), formatter));
         activity.setTitle(activityDto.getTitle());
         activity.setStatus(activityDto.getStatus());
-        activity.setHospital(hospitalService.getById(activityDto.getHospitalId()));
+        activity.setUserid(activityDto.getUserid());
         return activity;
     }
 
@@ -39,9 +39,9 @@ public class ActivityDtoMapper extends AbstractMapper<Activity, ActivityDto> {
         activityDto.setCategory(activity.getCategory());
         activityDto.setStartDateAndTime(activity.getStartDateAndTime().toString());
         activityDto.setEndDateAndTime(activity.getEndDateAndTime().toString());
-        activityDto.setHospitalId(activity.getHospital().getId());
         activityDto.setStatus(activity.getStatus());
         activityDto.setTitle(activity.getTitle());
+        activityDto.setUserid(activity.getUserid());
         return activityDto;
     }
 

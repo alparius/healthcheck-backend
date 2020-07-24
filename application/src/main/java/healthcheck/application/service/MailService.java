@@ -14,7 +14,7 @@ public class MailService {
     @Value("${mail.login.link}")
     private String loginLink;
 
-    public static final String MAIL_SUBJECT = "Welcome to Little People!";
+    public static final String MAIL_SUBJECT = "Welcome to Health Check!";
     public static final String MAIL_MESSAGE = "Hello, \n in this email you will find attached an automatically generated password for your account, and a link where you can log-in with your e-mail and the given password.\n"
             + "Link: %s" + "\nPassword: %s";
 
