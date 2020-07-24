@@ -29,7 +29,6 @@ public class Activity extends BaseEntity {
     @Column
     private LocalDateTime endDateAndTime;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Hospital.class)
-    @JoinColumn(name = "hospital", referencedColumnName = "id")
-    private Hospital hospital;
+    @Column
+    private Long userid;
 }

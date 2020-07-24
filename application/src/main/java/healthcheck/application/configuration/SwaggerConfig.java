@@ -22,7 +22,7 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return (new ApiInfoBuilder()).title("LittlePeople Rest Interfaces").description("Declaration of all REST API's that are used for the LittlePeople application").termsOfServiceUrl("https://www.mhp.com/de/home/").license("Commercial License").version("1.0").build();
+        return (new ApiInfoBuilder()).title("Health Check Rest Interfaces").description("Declaration of all REST API's that are used for the Health Check application").license("Commercial License").version("1.0").build();
     }
 }
 

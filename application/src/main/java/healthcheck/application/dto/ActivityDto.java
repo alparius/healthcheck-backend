@@ -14,5 +14,5 @@ public class ActivityDto extends BaseDto{
     private String status;
     private String startDateAndTime;
     private String endDateAndTime;
-    private Long hospitalId;
+    private Long userid;
 }

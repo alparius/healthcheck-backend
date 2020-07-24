@@ -51,7 +51,6 @@ public class ProposalService {
         proposal.setStatus(StatusEnum.ACCEPTED.toString());
         Activity activity = new Activity();
         activity.setStatus(proposal.getStatus());
-        activity.setHospital(proposal.getHospital());
         activity.setTitle(proposal.getTitle());
         activity.setStartDateAndTime(proposal.getStartDateAndTime());
         activity.setEndDateAndTime(proposal.getEndDateAndTime());

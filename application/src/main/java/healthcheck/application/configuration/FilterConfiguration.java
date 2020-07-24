@@ -1,6 +1,5 @@
 package healthcheck.application.configuration;
 
-import healthcheck.application.filters.AdminConnectionFilter;
 import healthcheck.application.filters.RequestResponseLoggingFilter;
 import healthcheck.application.filters.UserConnectionFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +11,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FilterConfiguration {
 
-
     @Autowired
     private UserConnectionFilter userConnectionFilter;
 
     @Autowired
     private RequestResponseLoggingFilter requestResponseLoggingFilter;
-
-    @Autowired
-    private AdminConnectionFilter adminConnectionFilter;
-
 
     @Bean
     public FilterRegistrationBean<RequestResponseLoggingFilter> loggingFilterFilterRegistrationBean() {
@@ -43,30 +37,11 @@ public class FilterConfiguration {
         registrationBean.setFilter(userConnectionFilter);
         registrationBean.setOrder(2);
 
-
         registrationBean.addUrlPatterns("/api/report/*");
         registrationBean.addUrlPatterns("/api/activity/*");
         registrationBean.addUrlPatterns("/api/hospital/*");
         registrationBean.addUrlPatterns("/api/proposal/*");
         registrationBean.addUrlPatterns("/api/vote/*");
-
-        return registrationBean;
-    }
-
-    @Bean
-    public FilterRegistrationBean<AdminConnectionFilter> adminConnectionFilterFilterRegistrationBean() {
-        FilterRegistrationBean<AdminConnectionFilter> registrationBean = new FilterRegistrationBean<>();
-
-        registrationBean.setFilter(adminConnectionFilter);
-        registrationBean.setOrder(3);
-
-
-        registrationBean.addUrlPatterns("/api/report/leader/*");
-        registrationBean.addUrlPatterns("/api/activity/leader/*");
-        registrationBean.addUrlPatterns("/api/hospital/leader/*");
-        registrationBean.addUrlPatterns("/api/proposal/leader/*");
-        registrationBean.addUrlPatterns("/api/vote/leader/*");
-
 
         return registrationBean;
     }
